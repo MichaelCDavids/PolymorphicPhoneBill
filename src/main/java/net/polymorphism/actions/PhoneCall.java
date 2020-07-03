@@ -3,7 +3,11 @@ package net.polymorphism.actions;
 public class PhoneCall  implements BillAction {
     double callCost;
     public PhoneCall(double price){
-        callCost = price;
+        if(price>0.0){
+            callCost = price;
+        }else {
+            callCost = 0.00;
+        }
     }
 
     @Override
