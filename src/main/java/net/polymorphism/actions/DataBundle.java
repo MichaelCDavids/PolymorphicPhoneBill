@@ -1,7 +1,5 @@
 package net.polymorphism.actions;
 
-import net.polymorphism.actions.BillAction;
-
 public class DataBundle implements BillAction {
     double dataCost;
 
