@@ -1,6 +1,6 @@
-package net.polymorphism;
+package net.polymorphism.actions;
 
-class PhoneCall  implements BillAction{
+public class PhoneCall  implements BillAction {
     double callCost;
     public PhoneCall(double price){
         callCost = price;

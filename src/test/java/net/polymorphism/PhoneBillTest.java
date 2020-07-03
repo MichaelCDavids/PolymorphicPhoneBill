@@ -1,5 +1,9 @@
 package net.polymorphism;
 
+
+import net.polymorphism.actions.DataBundle;
+import net.polymorphism.actions.PhoneCall;
+import net.polymorphism.actions.SmsBundle;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -37,7 +41,6 @@ public class PhoneBillTest {
     @Test
     public void PhoneBillTotalCostMethod() {
         PhoneBill bill = new PhoneBill();
-
         bill.accept(new PhoneCall(15.50));
         bill.accept(new PhoneCall(25.50));
         bill.accept(new PhoneCall(150.50));
@@ -56,23 +59,9 @@ public class PhoneBillTest {
         assertTrue(dataBundle instanceof DataBundle);
     }
     @Test
-    public void DataBundleCostTest() {
-        DataBundle dataBundle = new DataBundle(600);
-
-        assertEquals((long)330.0,(long)dataBundle.dataCost);
-        DataBundle dataBundle2 = new DataBundle(500);
-        assertEquals((long)275.0,(long)dataBundle2.dataCost);
-    }
-    @Test
     public void PhoneCallConstructorTest() {
         PhoneCall call = new PhoneCall(2.55);
         assertTrue(call instanceof PhoneCall);
-    }
-    @Test
-    public void PhoneCallCostTest() {
-        PhoneCall call = new PhoneCall(10.0);
-        double cost = call.callCost;
-        assertEquals(10.0, cost, 0.01);
     }
     @Test
     public void SmsBundleConstructorTest() {
@@ -89,7 +78,7 @@ public class PhoneBillTest {
     public void BillActionTotalsSmsBundleTest(){
         SmsBundle smsBundle = new SmsBundle(5,1.55);
         double cost = smsBundle.totalCost();
-        assertEquals(2.55, cost, 0.001);
+        assertEquals(7.75, cost, 0.001);
     }
     @Test
     public void BillActionTotalsDataBundleTest(){

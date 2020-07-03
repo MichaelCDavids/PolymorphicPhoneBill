@@ -1,6 +1,8 @@
-package net.polymorphism;
+package net.polymorphism.actions;
 
-class SmsBundle implements BillAction{
+import net.polymorphism.actions.BillAction;
+
+public class SmsBundle implements BillAction {
     int quantity;
     double smsPrice;
     public SmsBundle(int quantity, double smsPrice){
