@@ -30,7 +30,6 @@ public class PhoneBillTest {
     @Test
     public void PhoneBillAcceptMethodTestCall() {
         PhoneBill bill = new PhoneBill();
-
         bill.accept(new PhoneCall(15.50));
         double cost = bill.totalCost();
         assertEquals(15.5, cost, 0.001);
@@ -38,6 +37,7 @@ public class PhoneBillTest {
     @Test
     public void PhoneBillTotalCostMethod() {
         PhoneBill bill = new PhoneBill();
+
         bill.accept(new PhoneCall(15.50));
         bill.accept(new PhoneCall(25.50));
         bill.accept(new PhoneCall(150.50));
@@ -58,6 +58,7 @@ public class PhoneBillTest {
     @Test
     public void DataBundleCostTest() {
         DataBundle dataBundle = new DataBundle(600);
+
         assertEquals((long)330.0,(long)dataBundle.dataCost);
         DataBundle dataBundle2 = new DataBundle(500);
         assertEquals((long)275.0,(long)dataBundle2.dataCost);
@@ -77,5 +78,23 @@ public class PhoneBillTest {
     public void SmsBundleConstructorTest() {
         SmsBundle smsBundle = new SmsBundle(10,0.65);
         assertTrue(smsBundle instanceof SmsBundle);
+    }
+    @Test
+    public void BillActionTotalsCallTest(){
+        PhoneCall phoneCall = new PhoneCall(2.55);
+        double cost = phoneCall.totalCost();
+        assertEquals(2.55, cost, 0.001);
+    }
+    @Test
+    public void BillActionTotalsSmsBundleTest(){
+        SmsBundle smsBundle = new SmsBundle(5,1.55);
+        double cost = smsBundle.totalCost();
+        assertEquals(2.55, cost, 0.001);
+    }
+    @Test
+    public void BillActionTotalsDataBundleTest(){
+        DataBundle dataBundle = new DataBundle(750);
+        double cost = dataBundle.totalCost();
+        assertEquals(412.50, cost, 0.001);
     }
 }
