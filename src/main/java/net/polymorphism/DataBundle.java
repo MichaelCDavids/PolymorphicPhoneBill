@@ -1,6 +1,6 @@
 package net.polymorphism;
 
-class DataBundle extends PhoneBill{
+class DataBundle implements BillAction{
     double dataCost;
 
     public DataBundle(int megabytes){
@@ -17,5 +17,10 @@ class DataBundle extends PhoneBill{
         }else {
             dataCost = 0.0;
         }
+    }
+
+    @Override
+    public double totalCost() {
+        return this.dataCost;
     }
 }

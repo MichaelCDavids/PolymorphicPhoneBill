@@ -51,27 +51,6 @@ public class PhoneBillTest {
         assertEquals(1271.50, cost, 0.001);
     }
     @Test
-    public void PhoneBillPlaceCallMethodTest(){
-        PhoneBill bill = new PhoneBill();
-        bill.placeCall(20.0);
-        double cost = bill.totalCost();
-        assertEquals(20.00, cost, 0.001);
-    }
-    @Test
-    public void PhoneBillRequestSmsBundleMethodTest(){
-        PhoneBill bill = new PhoneBill();
-        bill.requestSmsBundle(2,1.0);
-        double cost = bill.totalCost();
-        assertEquals(2.00, cost, 0.001);
-    }
-    @Test
-    public void PhoneBillRequestDataBundleMethodTest(){
-        PhoneBill bill = new PhoneBill();
-        bill.requestDataBundle(150);
-        double cost = bill.totalCost();
-        assertEquals(150.00, cost, 0.001);
-    }
-    @Test
     public void DataBundleConstructorTest() {
         DataBundle dataBundle = new DataBundle(600);
         assertTrue(dataBundle instanceof DataBundle);
