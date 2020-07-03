@@ -68,22 +68,4 @@ public class PhoneBillTest {
         SmsBundle smsBundle = new SmsBundle(10,0.65);
         assertTrue(smsBundle instanceof SmsBundle);
     }
-    @Test
-    public void BillActionTotalsCallTest(){
-        PhoneCall phoneCall = new PhoneCall(2.55);
-        double cost = phoneCall.totalCost();
-        assertEquals(2.55, cost, 0.001);
-    }
-    @Test
-    public void BillActionTotalsSmsBundleTest(){
-        SmsBundle smsBundle = new SmsBundle(5,1.55);
-        double cost = smsBundle.totalCost();
-        assertEquals(7.75, cost, 0.001);
-    }
-    @Test
-    public void BillActionTotalsDataBundleTest(){
-        DataBundle dataBundle = new DataBundle(750);
-        double cost = dataBundle.totalCost();
-        assertEquals(412.50, cost, 0.001);
-    }
 }
